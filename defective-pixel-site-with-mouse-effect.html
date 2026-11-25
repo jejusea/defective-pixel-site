@@ -254,44 +254,6 @@
             font-weight: 600 !important;
         }
 
-        .grid-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: none;
-            z-index: 999;
-            display: none;
-        }
-
-        .grid-overlay.active {
-            display: grid;
-        }
-
-        .grid-column-guide {
-            background-color: rgba(255, 0, 0, 0.04);
-            border-left: 1px solid rgba(255, 0, 0, 0.12);
-            border-right: 1px solid rgba(255, 0, 0, 0.12);
-            height: 100vh;
-        }
-
-        .grid-toggle-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: #000;
-            color: #fff;
-            border: none;
-            padding: 8px 14px;
-            font-size: 11px;
-            font-weight: 600;
-            border-radius: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-    
         /* --- 두 번째 코드의 마우스 추적 데드픽셀/텍스처 효과 --- */
         body { position: relative; }
         #surface {
@@ -341,16 +303,6 @@
     <div id="error" role="alert"></div>
 
 
-    <div class="grid-overlay grid-container" id="gridOverlay">
-        <div class="grid-column-guide"></div><div class="grid-column-guide"></div>
-        <div class="grid-column-guide"></div><div class="grid-column-guide"></div>
-        <div class="grid-column-guide"></div><div class="grid-column-guide"></div>
-        <div class="grid-column-guide"></div><div class="grid-column-guide"></div>
-        <div class="grid-column-guide"></div><div class="grid-column-guide"></div>
-        <div class="grid-column-guide"></div><div class="grid-column-guide"></div>
-    </div>
-
-    <button class="grid-toggle-btn" id="toggleGridBtn">가이드 켬/끔 (캡처용)</button>
 
     <header class="site-header">
         <div class="grid-container">
@@ -457,23 +409,6 @@
 
                 if (videoEl.duration) {
                     videoEl.currentTime = progress * videoEl.duration;
-                }
-            });
-        }
-
-        // 그리드 오버레이 토글 기능
-        const toggleGridBtn = document.getElementById('toggleGridBtn');
-        const gridOverlay = document.getElementById('gridOverlay');
-
-        if (toggleGridBtn && gridOverlay) {
-            toggleGridBtn.addEventListener('click', () => {
-                gridOverlay.classList.toggle('active');
-                if (gridOverlay.classList.contains('active')) {
-                    toggleGridBtn.textContent = '가이드 끔';
-                    toggleGridBtn.style.background = '#ff3b30';
-                } else {
-                    toggleGridBtn.textContent = '가이드 켬/끔 (캡처용)';
-                    toggleGridBtn.style.background = '#000';
                 }
             });
         }
